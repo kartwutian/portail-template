@@ -1,0 +1,306 @@
+{
+  "__default": [
+    {
+      "name": "upload",
+      "method": "POST",
+      "path": "/api/ftts/obs/upload",
+      "desc": "上传图片"
+    },
+    {
+      "name": "uploadAudio",
+      "method": "POST",
+      "path": "/api/ftts/obs/uploadAudio",
+      "desc": "上传语音"
+    },
+    {
+      "name": "queryAllBillByState",
+      "method": "GET",
+      "path": "/api/ftts/bill/queryAllBillByState",
+      "desc": "主询价单列表/子账户主询价单列表"
+    },
+    {
+      "name": "queryAllBillByState_1571019611031",
+      "method": "GET",
+      "path": "/api/ftts/bill/queryAllBillByState_1571019611031",
+      "desc": "主询价单列表_copy"
+    },
+    {
+      "name": "mainBillDetail",
+      "method": "GET",
+      "path": "/api/ftts/bill/mainBillDetail",
+      "desc": "主询价单详情"
+    },
+    {
+      "name": "removeProductFromBill",
+      "method": "POST",
+      "path": "/api/ftts/bill/removeProductFromBill",
+      "desc": "从询价单中删除商品"
+    },
+    {
+      "name": "updateSupplier",
+      "method": "POST",
+      "path": "/api/ftts/supplier/updateSupplier",
+      "desc": "供应商信息修改"
+    },
+    {
+      "name": "queryAllSupplierByKey",
+      "method": "GET",
+      "path": "/api/ftts/supplier/queryAllSupplierByKey",
+      "desc": "供应商列表展示"
+    },
+    {
+      "name": "updateClient",
+      "method": "POST",
+      "path": "/api/ftts/client/updateClient",
+      "desc": "修改客户信息"
+    },
+    {
+      "name": "updateUserInfo",
+      "method": "POST",
+      "path": "/api/ftts/user/updateUserInfo",
+      "desc": "修改用户信息"
+    },
+    {
+      "name": "updatePassword",
+      "method": "POST",
+      "path": "/api/ftts/user/updatePassword",
+      "desc": "修改用户密码"
+    },
+    {
+      "name": "queryTwoLevelsCategory",
+      "method": "GET",
+      "path": "/api/ftts/category/queryTwoLevelsCategory",
+      "desc": "分类列表"
+    },
+    {
+      "name": "initInqueryBill",
+      "method": "POST",
+      "path": "/api/bill/initInqueryBill",
+      "desc": "创建主询价单"
+    },
+    {
+      "name": "add",
+      "method": "POST",
+      "path": "/api/ftts/product/add",
+      "desc": "创建商品"
+    },
+    {
+      "name": "createSubBill",
+      "method": "POST",
+      "path": "/api/ftts/bill/createSubBill",
+      "desc": "创建子询价单"
+    },
+    {
+      "name": "createSubAccount",
+      "method": "POST",
+      "path": "/api/ftts/user/createSubAccount",
+      "desc": "创建子账号"
+    },
+    {
+      "name": "deleteMainBill",
+      "method": "GET",
+      "path": "/api/ftts/bill/deleteMainBill",
+      "desc": "删除主询价单"
+    },
+    {
+      "name": "delectSupplierById",
+      "method": "GET",
+      "path": "/api/ftts/supplier/delectSupplierById",
+      "desc": "删除供应商信息"
+    },
+    {
+      "name": "deleteSubAccount",
+      "method": "POST",
+      "path": "/api/ftts/user/deleteSubAccount",
+      "desc": "删除子账号"
+    },
+    {
+      "name": "delectClientById",
+      "method": "GET",
+      "path": "/api/ftts/client/delectClientById",
+      "desc": "删除客户"
+    },
+    {
+      "name": "addProduct2Bill",
+      "method": "POST",
+      "path": "/api/ftts/bill/addProduct2Bill",
+      "desc": "加入询价单"
+    },
+    {
+      "name": "queryAllUnit",
+      "method": "GET",
+      "path": "/api/ftts/unit/queryAllUnit",
+      "desc": "单位列表"
+    },
+    {
+      "name": "sendBill",
+      "method": "POST",
+      "path": "/api/ftts/bill/sendBill",
+      "desc": "发送邮件"
+    },
+    {
+      "name": "sendSmsCode",
+      "method": "GET",
+      "path": "/api/ftts/user/sendSmsCode",
+      "desc": "发送验证码"
+    },
+    {
+      "name": "productDetail",
+      "method": "GET",
+      "path": "/api/ftts/bill/productDetail",
+      "desc": "商品详情"
+    },
+    {
+      "name": "subBillList",
+      "method": "POST",
+      "path": "/api/ftts/bill/subBillList",
+      "desc": "子询价单列表"
+    },
+    {
+      "name": "billDetailList",
+      "method": "GET",
+      "path": "/api/ftts/bill/billDetailList",
+      "desc": "子询价单商品列表"
+    },
+    {
+      "name": "count",
+      "method": "GET",
+      "path": "/api/ftts/bill/count",
+      "desc": "子询价单商品种类数量"
+    },
+    {
+      "name": "subAccountList",
+      "method": "GET",
+      "path": "/api/ftts/user/subAccountList",
+      "desc": "子账号列表"
+    },
+    {
+      "name": "subAccountDetail",
+      "method": "GET",
+      "path": "/api/ftts/user/subAccountDetail",
+      "desc": "子账号详情接口"
+    },
+    {
+      "name": "queryClientByKey",
+      "method": "GET",
+      "path": "/api/ftts/client/queryClientByKey",
+      "desc": "客户列表，搜索客户信息"
+    },
+    {
+      "name": "export",
+      "method": "POST",
+      "path": "/api/ftts/client/export",
+      "desc": "导出客户信息"
+    },
+    {
+      "name": "deleteSubBill",
+      "method": "POST",
+      "path": "/api/ftts/bill/deleteSubBill",
+      "desc": "左滑删除子询价单"
+    },
+    {
+      "name": "queryAllArea",
+      "method": "GET",
+      "path": "/api/ftts/area/queryAllArea",
+      "desc": "库区列表"
+    },
+    {
+      "name": "veryfyCode",
+      "method": "POST",
+      "path": "/api/ftts/user/veryfyCode",
+      "desc": "忘记密码--校验验证码"
+    },
+    {
+      "name": "resetPwd",
+      "method": "POST",
+      "path": "/api/ftts/user/resetPwd",
+      "desc": "忘记密码--重置密码"
+    },
+    {
+      "name": "updateSubAccount",
+      "method": "POST",
+      "path": "/api/ftts/user/updateSubAccount",
+      "desc": "更新子账号"
+    },
+    {
+      "name": "querySupplierById",
+      "method": "GET",
+      "path": "/api/ftts/supplier/querySupplierById",
+      "desc": "查看供应商详情"
+    },
+    {
+      "name": "queryClientById",
+      "method": "GET",
+      "path": "/api/ftts/client/queryClientById",
+      "desc": "查看客户详细信息"
+    },
+    {
+      "name": "register",
+      "method": "POST",
+      "path": "/api/ftts/user/register",
+      "desc": "注册"
+    },
+    {
+      "name": "insertSupplier",
+      "method": "POST",
+      "path": "/api/ftts/supplier/insertSupplier",
+      "desc": "添加供应商"
+    },
+    {
+      "name": "insertClient",
+      "method": "POST",
+      "path": "/api/ftts/client/insertClient",
+      "desc": "添加客户"
+    },
+    {
+      "name": "updateProduct",
+      "method": "POST",
+      "path": "/api/ftts/bill/updateProduct",
+      "desc": "编辑商品"
+    },
+    {
+      "name": "supplierHistory",
+      "method": "GET",
+      "path": "/api/ftts/bill/supplierHistory",
+      "desc": "获取客户已经询过的店铺列表"
+    },
+    {
+      "name": "getUserInfo",
+      "method": "GET",
+      "path": "/api/ftts/user/getUserInfo",
+      "desc": "获取用户信息"
+    },
+    {
+      "name": "queryAllPrice",
+      "method": "GET",
+      "path": "/api/ftts/price/queryAllPrice",
+      "desc": "获取订单价格、套餐价格、子账号年价、子账号月价"
+    },
+    {
+      "name": "queryPictureList",
+      "method": "GET",
+      "path": "/api/picture/queryPictureList",
+      "desc": "询价单列表图库"
+    },
+    {
+      "name": "queryProductPictures",
+      "method": "GET",
+      "path": "/api/picture/queryProductPictures",
+      "desc": "询价单图库"
+    },
+    {
+      "name": "signOut",
+      "method": "GET",
+      "path": "/api/ftts/user/signOut",
+      "desc": "退出登录"
+    }
+  ],
+  "login": [
+    {
+      "name": "login",
+      "method": "GET",
+      "path": "/api/user/login",
+      "desc": "小程序登录"
+    }
+  ]
+}
