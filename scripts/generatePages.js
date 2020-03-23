@@ -80,13 +80,12 @@
       basePathModels = fullPathModels.replace(extname, '');
     }
     const filename = path.win32.basename(basePath);
-    const filenameModels = path.win32.basename(basePathModels);
     const dirname = path.dirname(basePath);
     const dirnameModels = path.dirname(basePathModels);
     console.log(basePath);
     // 注入page的参数, 过滤掉最后的index
     const modelName = `${path
-      .relative(pagesPath, filename === 'index' ? dirname : basePath)
+      .relative(pagesPath, basePath)
       .split('\\')
       .map(str => str[0].toUpperCase() + str.substr(1))
       .join('')}`;
