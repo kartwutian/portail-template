@@ -1,23 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { observer, inject } from 'mobx-react';
-import cssModules from 'react-css-modules';
-import styles from '<%= stylePath%>';
-import {} from 'antd';
+import { Button } from 'antd';
+import '<%= stylePath%>';
+import { delay } from '../utils/helper';
 
 @inject('model<%= modelName%>')
 @observer
-@cssModules(styles)
-class <%= modelName%>Page extends Component {
+class <%= modelName%>Page extends React.Component {
   constructor(props) {
     super();
     this.store = props.model<%= modelName%>;
   }
 
+  static getInitialProps = async ctx => {
+    // console.log(ctx);
+    ctx.currentModelName = 'model<%= modelName%>';
+    await delay(1);
+    return { demo: 222 };
+  };
+
   render() {
+    const { } = this.store;
     return (
-      <div>
-        <p><%= modelName%>Page</p>
-      </div>
+       <div className="<%= pageStylePrefix%>">
+         <%= modelName%>Page
+       </div>
     );
   }
 }

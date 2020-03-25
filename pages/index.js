@@ -1,6 +1,8 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
 import { delay } from '../utils/helper';
+import { Button } from 'antd';
+import './index.less';
 
 @inject('modelIndex')
 @observer
@@ -22,7 +24,9 @@ export default class Counter extends React.Component {
     return (
       <div>
         <div>{demo}</div>
-        <button onClick={changeDemo}>change</button>
+        <Button onClick={changeDemo}>
+          <div className="page">styles</div>
+        </Button>
       </div>
     );
   }

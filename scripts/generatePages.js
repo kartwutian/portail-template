@@ -89,8 +89,12 @@
       .split('\\')
       .map(str => str[0].toUpperCase() + str.substr(1))
       .join('')}`;
+    const pageStylePrefix = `page-${path
+      .relative(pagesPath, basePath)
+      .split('\\')
+      .map(str => str[0].toLowerCase() + str.substr(1))
+      .join('-')}`;
     console.log(modelName);
-
     const serviceName = path.win32.basename(dirname);
 
     // path.relative(sourceCodePath, basePath);
@@ -101,18 +105,23 @@
       template: ejs.render(templatePage.toString(), {
         modelName,
         stylePath: `./${filename}.less`,
+        pageStylePrefix,
         config: pageConfig,
       }),
     });
     // 生成less文件
     await generateFile({
       filePath: `${basePath}.less`,
-      template: ejs.render(templateLess.toString()),
-      config: pageConfig,
+      template: ejs.render(templateLess.toString(), {
+        pageStylePrefix,
+        config: pageConfig,
+      }),
     });
+    const modelFilePath = `${dirnameModels}/${filename[0].toUpperCase() +
+      filename.substr(1)}.model.js`;
     // 生成model文件
     await generateFile({
-      filePath: `${basePathModels}.model.js`,
+      filePath: modelFilePath,
       template: ejs.render(templateModel.toString(), {
         modelName,
         servicePath: `./_service.${serviceName}.js`,
@@ -136,7 +145,7 @@
     models.push({
       name: modelName,
       path: `${path
-        .relative(storePath, `${basePathModels}.model`)
+        .relative(storePath, modelFilePath)
         .split('\\')
         .join('/')}`,
     });
