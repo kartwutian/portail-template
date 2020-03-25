@@ -7,10 +7,10 @@ module.exports = {
       route: '/index', // 使用的前端路由
       name: '首页',
     },
-    // {
-    //   path: "pages/login",
-    //   route: "/login",
-    //   name: "登录"
-    // }
+    {
+      path: 'pages/login',
+      route: '/login',
+      name: '登录',
+    },
   ],
 };

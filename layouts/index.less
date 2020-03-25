@@ -1,0 +1,71 @@
+body:global {
+  background-color: #efefef;
+  font-family: Chinese Quote, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue,
+    Helvetica, Arial, sans-serif;
+}
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  .header {
+    background-color: #fff;
+    border-bottom: 1px solid #efefef;
+    &.small {
+      padding: 0 20px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+      div {
+        flex: 1;
+        padding: 0 10px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .content {
+    padding: 15px 0;
+    background-color: transparent;
+  }
+
+  .footer {
+    text-align: center;
+    :global(.slogan) {
+      border-bottom: 1px solid #e8e8e8;
+      font-size: 14px;
+      padding: 16px 0 6px;
+      line-height: 22px;
+      color: #595959;
+      min-height: 45px;
+    }
+    :global(.links) {
+      padding: 6px 0 16px;
+      line-height: 22px;
+      font-size: 14px;
+      a {
+        display: inline-block;
+        margin: 0 8px;
+        color: #8c8c8c;
+        &:hover {
+          color: #595959;
+        }
+        &.link-primary {
+          color: #25b864;
+        }
+      }
+    }
+    :global(.copyright) {
+      text-align: center;
+      font-size: 12px;
+      line-height: 18px;
+      color: #8c8c8c;
+      padding: 0 12px 12px;
+    }
+  }
+}
