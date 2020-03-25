@@ -1,34 +1,47 @@
-import App from "next/app";
-import React from "react";
-import { fetchInitialStoreState, Store } from "../store";
-import { Provider } from "mobx-react";
+import App from 'next/app';
+import React from 'react';
+import store from '../store/index';
+// import { isServer } from '../utils/helper';
+// import { deepCopy } from '../utils/helper';
+import { Provider } from 'mobx-react';
 
 class MyMobxApp extends App {
   state = {
-    store: new Store()
+    store,
   };
 
-  // Fetching serialized(JSON) store state
+  // fetch Init state
   static async getInitialProps(appContext) {
     const appProps = await App.getInitialProps(appContext);
-    const initialStoreState = await fetchInitialStoreState();
+    const currentModelName = appContext.ctx.currentModelName;
+    const { pageProps } = appProps;
+    console.log(`-- 初始模块为 ${currentModelName} --`);
+    let initialStoreState = currentModelName
+      ? {
+          [currentModelName]: pageProps,
+        }
+      : {};
 
     return {
       ...appProps,
-      initialStoreState
+      initialStoreState,
     };
   }
 
   // Hydrate serialized state to store
   static getDerivedStateFromProps(props, state) {
-    state.store.hydrate(props.initialStoreState);
+    Object.keys(props.initialStoreState).forEach(item => {
+      state.store[item] &&
+        state.store[item].commit(props.initialStoreState[item]);
+    });
+
     return state;
   }
 
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <Provider store={this.state.store}>
+      <Provider {...store}>
         <Component {...pageProps} />
       </Provider>
     );

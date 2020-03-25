@@ -1,9 +1,8 @@
-import { action, observable } from 'mobx';
+import { action, extendObservable } from 'mobx';
 import { useStaticRendering } from 'mobx-react';
-
-const isServer = typeof window === 'undefined';
+import { isServer } from '../utils/helper';
 // eslint-disable-next-line react-hooks/rules-of-hooks
-useStaticRendering(isServer);
+useStaticRendering(isServer());
 
 export default class {
   constructor() {
@@ -30,5 +29,10 @@ export default class {
   @action
   commit = payload => {
     Object.keys(payload).forEach(key => (this[key] = payload[key]));
+  };
+
+  @action
+  changeDemo = () => {
+    this.demo = this.demo + 1;
   };
 }
