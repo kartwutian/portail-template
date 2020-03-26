@@ -1,6 +1,7 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
 import { Button } from 'antd';
+import Home from '../components/Home';
 import './login.less';
 import { delay } from '../utils/helper';
 
@@ -20,11 +21,11 @@ class LoginPage extends React.Component {
   };
 
   render() {
-    const { } = this.store;
+    const {} = this.store;
     return (
-       <div className="page-login">
-         LoginPage
-       </div>
+      <div className="page-login">
+        <Home />>
+      </div>
     );
   }
 }

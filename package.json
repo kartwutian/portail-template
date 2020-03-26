@@ -10,11 +10,16 @@
   "dependencies": {
     "antd": "^4.0.4",
     "axios": "^0.19.2",
+    "enquire-js": "^0.2.1",
     "mobx": "^5.15.4",
     "mobx-react": "^6.1.8",
     "next": "9.3.1",
+    "rc-queue-anim": "^1.8.4",
+    "rc-scroll-anim": "^2.7.4",
+    "rc-texty": "^0.2.0",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-sublime-video": "^0.2.5"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.8.3",
