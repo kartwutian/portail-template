@@ -8,9 +8,9 @@ module.exports = {
       name: '首页',
     },
     {
-      path: 'pages/login',
-      route: '/login',
-      name: '登录',
+      path: 'pages/get_start',
+      route: '/get_start',
+      name: '开始',
     },
   ],
 };

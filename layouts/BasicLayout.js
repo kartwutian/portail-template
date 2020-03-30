@@ -26,13 +26,14 @@ class Page extends PureComponent {
         selectedKeys={[pathname]}
         style={{ lineHeight: '63px' }}
       >
-        {menus.map(item => (
-          <Menu.Item key={item.path}>
-            <Link href={item.path}>
-              <a>{item.name}</a>
-            </Link>
-          </Menu.Item>
-        ))}
+        {menus &&
+          menus.map(item => (
+            <Menu.Item key={item.path}>
+              <Link href={item.path}>
+                <a>{item.name}</a>
+              </Link>
+            </Menu.Item>
+          ))}
       </Menu>
     );
   };

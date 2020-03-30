@@ -13,17 +13,22 @@ class MyMobxApp extends App {
   // fetch Init state
   static async getInitialProps(appContext) {
     const appProps = await App.getInitialProps(appContext);
-    const currentModelName = appContext.ctx.currentModelName;
-    const { pageProps } = appProps;
-    console.log(`-- 初始模块为 ${currentModelName} --`);
-    let initialStoreState = currentModelName
-      ? {
-          [currentModelName]: pageProps,
-        }
-      : {};
+    let pageModelNames = appContext.ctx.pageModelNames;
 
+    const { pageProps } = appProps;
+    // 兼容单个值
+    if (typeof pageModelNames === 'string') {
+      pageModelNames = [pageModelNames];
+    }
+    let initialStoreState = pageModelNames ? pageProps : {};
+
+    console.log(Object.keys(pageProps));
+    const plainPageProps = Object.keys(pageProps).reduce((result, next) => {
+      return { ...result, ...pageProps[next] };
+    }, {});
+    console.log(plainPageProps);
     return {
-      ...appProps,
+      pageProps: plainPageProps,
       initialStoreState,
     };
   }
@@ -40,6 +45,7 @@ class MyMobxApp extends App {
 
   render() {
     const { Component, pageProps } = this.props;
+    console.log(pageProps);
     return (
       <Provider {...store}>
         <Component {...pageProps} />
