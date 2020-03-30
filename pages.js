@@ -12,5 +12,11 @@ module.exports = {
       route: '/get_start',
       name: '开始',
     },
+    {
+      path: 'pages/test',
+      route: '/test',
+      name: 'api',
+      template: 'list',
+    },
   ],
 };
