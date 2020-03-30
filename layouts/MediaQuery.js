@@ -1,9 +1,12 @@
-import React, { PureComponent } from "react";
-import WithDva from "../utils/store";
+import React, { PureComponent } from 'react';
+import { observer, inject } from 'mobx-react';
 
-class Page extends PureComponent {
+@inject('appGlobalModel')
+@observer
+class MediaQuery extends PureComponent {
   constructor(props) {
     super(props);
+    this.globalStore = props.appGlobalModel;
   }
 
   componentDidMount() {
@@ -19,70 +22,52 @@ class Page extends PureComponent {
   }
 
   initMediaQuery() {
-    const {
-      global: { screen },
-      dispatch
-    } = this.props;
-    const enquire = (this.enquire = require("enquire.js"));
-    enquire.register("screen and (max-width: 480px)", {
+    const { screen, commit } = this.globalStore;
+    const enquire = (this.enquire = require('enquire.js'));
+    enquire.register('screen and (max-width: 480px)', {
       match: () => {
         // console.log("mobile");
-        if (screen === "mobile") return;
-        dispatch({
-          type: "global/updateState",
-          payload: {
-            screen: "mobile"
-          }
+        if (screen === 'mobile') return;
+        commit({
+          screen: 'mobile',
         });
-      }
+      },
     });
-    enquire.register("screen and (min-width: 481px) and (max-width: 767px)", {
+    enquire.register('screen and (min-width: 481px) and (max-width: 767px)', {
       match: () => {
         // console.log("mini");
-        if (screen === "mini") return;
-        dispatch({
-          type: "global/updateState",
-          payload: {
-            screen: "mini"
-          }
+        if (screen === 'mini') return;
+        commit({
+          screen: 'mini',
         });
-      }
+      },
     });
-    enquire.register("screen and (min-width: 768px) and (max-width: 980px)", {
+    enquire.register('screen and (min-width: 768px) and (max-width: 980px)', {
       match: () => {
         // console.log("small");
-        if (screen === "small") return;
-        dispatch({
-          type: "global/updateState",
-          payload: {
-            screen: "small"
-          }
+        if (screen === 'small') return;
+        commit({
+          screen: 'small',
         });
-      }
+      },
     });
-    enquire.register("screen and (min-width: 981px) and (max-width: 1200px)", {
+    enquire.register('screen and (min-width: 981px) and (max-width: 1200px)', {
       match: () => {
         // console.log("middle");
-        if (screen === "medium") return;
-        dispatch({
-          type: "global/updateState",
-          payload: {
-            screen: "medium"
-          }
+        if (screen === 'medium') return;
+        commit({
+          screen: 'medium',
         });
-      }
+      },
     });
-    enquire.register("screen and (min-width: 1201px)", {
+    enquire.register('screen and (min-width: 1201px)', {
       match: function() {
-        console.log("large");
-        if (screen === "large") return;
-        dispatch({
-          type: "global/updateState",
-          payload: {
-            screen: "large"
-          }
+        console.log('large');
+        if (screen === 'large') return;
+        commit({
+          screen: 'large',
         });
-      } // OPTIONAL
+      }, // OPTIONAL
       // If supplied, triggered when the media query transitions
       // *from an unmatched to a matched state*
 
@@ -110,17 +95,17 @@ class Page extends PureComponent {
   }
 
   destoryMediaQuery() {
-    this.enquire.unregister("screen and (max-width: 480px)");
+    this.enquire.unregister('screen and (max-width: 480px)');
     this.enquire.unregister(
-      "screen and (min-width: 481px) and (max-width: 767px)"
+      'screen and (min-width: 481px) and (max-width: 767px)',
     );
     this.enquire.unregister(
-      "screen and (min-width: 768px) and (max-width: 980px)"
+      'screen and (min-width: 768px) and (max-width: 980px)',
     );
     this.enquire.unregister(
-      "screen and (min-width: 981px) and (max-width: 1200px)"
+      'screen and (min-width: 981px) and (max-width: 1200px)',
     );
-    this.enquire.unregister("screen and (min-width: 1201px)");
+    this.enquire.unregister('screen and (min-width: 1201px)');
   }
 
   render() {
@@ -129,6 +114,4 @@ class Page extends PureComponent {
   }
 }
 
-export default WithDva(({ global }) => {
-  return { global };
-})(Page);
+export default MediaQuery;

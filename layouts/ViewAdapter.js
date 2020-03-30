@@ -1,17 +1,17 @@
-import React, { Fragment, Component } from "react";
-import withDva from "../utils/store";
+import React, { Fragment, Component } from 'react';
+import { observer, inject } from 'mobx-react';
 
+@inject('appGlobalModel')
+@observer
 class ViewAdapter extends Component {
+  constructor(props) {
+    super(props);
+    this.globalStore = props.appGlobalModel;
+  }
+
   render() {
-    const {
-      mobile,
-      mini,
-      small,
-      medium,
-      large,
-      children,
-      global: { screen }
-    } = this.props;
+    const { mobile, mini, small, medium, large, children } = this.props;
+    const { screen } = this.globalStore;
     const largeView = large || children;
     const mediumView = medium || largeView;
     const smallView = small || mediumView;
@@ -22,14 +22,14 @@ class ViewAdapter extends Component {
 
     return (
       <Fragment>
-        {screen === "mobile" && mobileView}
-        {screen === "mini" && miniView}
-        {screen === "small" && smallView}
-        {screen === "medium" && medium}
-        {screen === "large" && largeView}
+        {screen === 'mobile' && mobileView}
+        {screen === 'mini' && miniView}
+        {screen === 'small' && smallView}
+        {screen === 'medium' && medium}
+        {screen === 'large' && largeView}
       </Fragment>
     );
   }
 }
 
-export default withDva(({ global }) => ({ global }))(ViewAdapter);
+export default ViewAdapter;

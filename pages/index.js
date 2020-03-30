@@ -29,9 +29,8 @@ export default class Counter extends React.Component {
 
   render() {
     const { demo, changeDemo } = this.store;
-    const { menus } = this.globalStore;
     return (
-      <BasicLayout menus={menus}>
+      <BasicLayout>
         <div>{demo}</div>
 
         <TweenOne>

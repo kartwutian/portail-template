@@ -3,22 +3,28 @@ import { Layout, Menu, Row, Col } from 'antd';
 import Link from 'next/link';
 import Head from 'next/head';
 import { withRouter } from 'next/router';
+import { observer, inject } from 'mobx-react';
+import MediaQuery from './MediaQuery';
 import './index.less';
 
 const { Header, Content, Footer } = Layout;
 
+@withRouter
+@inject('appGlobalModel')
+@observer
 class Page extends PureComponent {
   constructor(props) {
     super(props);
+    this.globalStore = props.appGlobalModel;
   }
 
   componentDidMount() {}
 
   renderMenus = () => {
     const {
-      menus,
       router: { pathname },
     } = this.props;
+    const { menus } = this.globalStore;
     return (
       <Menu
         theme="light"
@@ -64,8 +70,10 @@ class Page extends PureComponent {
 
   render() {
     const { children } = this.props;
+    const { screen } = this.globalStore;
     return (
       <Layout className="base-layout">
+        <MediaQuery />
         <Head>
           <title>沐雨橙风</title>
           <meta
@@ -75,7 +83,8 @@ class Page extends PureComponent {
         </Head>
         {this.renderHeader()}
         <Content className="content">
-          <div style={{ paddingTop: 24, minHeight: 580 }}>{children}</div>
+          <div>{screen}</div>
+          <div style={{ paddingTop: 24, minHeight: 680 }}>{children}</div>
         </Content>
         {this.renderFooter()}
       </Layout>
@@ -83,4 +92,4 @@ class Page extends PureComponent {
   }
 }
 
-export default withRouter(Page);
+export default Page;

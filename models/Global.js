@@ -42,6 +42,7 @@ export default class Get_start {
           path: routes['login'],
         },
       ],
+      screen: 'large',
     };
 
     if (init) {

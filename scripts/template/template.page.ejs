@@ -27,11 +27,11 @@ class <%= modelName%>Page extends React.Component {
   };
 
   render() {
-    const { menus } = this.globalStore;
+    const { } = this.globalStore;
     const { } = this.store;
     return (
        <div className="<%= pageStylePrefix%>">
-        <BasicLayout menus={menus}>
+        <BasicLayout>
           <%= modelName%>Page
         </BasicLayout>
        </div>
