@@ -22,11 +22,11 @@ class MyMobxApp extends App {
     }
     let initialStoreState = pageModelNames ? pageProps : {};
 
-    console.log(Object.keys(pageProps));
+    // console.log(Object.keys(pageProps));
     const plainPageProps = Object.keys(pageProps).reduce((result, next) => {
       return { ...result, ...pageProps[next] };
     }, {});
-    console.log(plainPageProps);
+    // console.log(plainPageProps);
     return {
       pageProps: plainPageProps,
       initialStoreState,
@@ -45,7 +45,7 @@ class MyMobxApp extends App {
 
   render() {
     const { Component, pageProps } = this.props;
-    console.log(pageProps);
+    // console.log(pageProps);
     return (
       <Provider {...store}>
         <Component {...pageProps} />

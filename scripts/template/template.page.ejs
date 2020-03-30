@@ -1,29 +1,39 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
 import { Button } from 'antd';
-import '<%= stylePath%>';
+import BasicLayout from '../layouts/BasicLayout';
 import { delay } from '../utils/helper';
 
+import '<%= stylePath%>';
+
+@inject('appGlobalModel')
 @inject('model<%= modelName%>')
 @observer
 class <%= modelName%>Page extends React.Component {
   constructor(props) {
     super();
+    this.globalStore = props.appGlobalModel;
     this.store = props.model<%= modelName%>;
   }
 
   static getInitialProps = async ctx => {
     // console.log(ctx);
-    ctx.currentModelName = 'model<%= modelName%>';
-    await delay(1);
-    return { demo: 222 };
+    ctx.pageModelNames = ['appGlobalModel', 'model<%= modelName%>'];
+    // await delay(1);
+    return {
+      appGlobalModel: {},
+      model<%= modelName%>: { demo: 222 }, // 模块内容
+    };
   };
 
   render() {
+    const { menus } = this.globalStore;
     const { } = this.store;
     return (
        <div className="<%= pageStylePrefix%>">
-         <%= modelName%>Page
+        <BasicLayout menus={menus}>
+          <%= modelName%>Page
+        </BasicLayout>
        </div>
     );
   }
