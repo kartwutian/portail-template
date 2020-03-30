@@ -3,6 +3,7 @@ import AppGlobalModel from '../models/Global.js';
 <% }) %>
 
 export default {
+  appGlobalModel: new AppGlobalModel(),
 <% models.forEach(function(item){ %>  model<%= item.name %>: new <%= item.name %>(),
 <% }) %>
 };
