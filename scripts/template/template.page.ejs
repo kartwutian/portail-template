@@ -11,7 +11,7 @@ import '<%= stylePath%>';
 @observer
 class <%= modelName%>Page extends React.Component {
   constructor(props) {
-    super();
+    super(props);
     this.globalStore = props.appGlobalModel;
     this.store = props.model<%= modelName%>;
   }
