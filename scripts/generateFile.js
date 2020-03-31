@@ -66,7 +66,7 @@ const beforeGenerateFile = async filePath => {
     await Promise.reject({
       code: '-1',
       filePath,
-      msg: '文件已存在'
+      msg: '文件已存在',
     });
   } // 如果文件已经存在了，抛出错误
 
@@ -83,7 +83,7 @@ const beforeGenerateFile = async filePath => {
     filePath,
     basePath,
     filename,
-    dirname
+    dirname,
   };
 };
 
@@ -95,8 +95,9 @@ const generateFile = async ({ filePath, template }, rewrite = false) => {
   try {
     await beforeGenerateFile(filePath);
     fs.writeFileSync(filePath, template);
+    console.log(`${filePath} 已生成`);
   } catch (error) {
-    console.log(JSON.stringify(error));
+    // console.log(JSON.stringify(error));
     if (rewrite) {
       fs.writeFileSync(filePath, template);
       console.log(`${filePath} 被重写了`);
